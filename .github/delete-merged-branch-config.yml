@@ -1,0 +1,6 @@
+exclude:
+  - main
+  - dev
+  - feature/*
+  - hotfix/*
+delete_closed_pr: true
