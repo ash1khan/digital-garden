@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky install",
-    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "check": "tsc --noEmit && prettier --check \"**/*.{js,ts,md,mdx,astro}\"",
+    "lint": "prettier --write  \"**/*.{js,ts,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,astro}\"",
     "commitlint": "commitlint --edit",
     "commit": "git-cz"
   },
