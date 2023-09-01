@@ -9,7 +9,8 @@
     "astro": "astro",
     "prepare": "husky install",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "commit": "git-cz"
   },
   "dependencies": {
     "astro": "^3.0.5"
@@ -19,11 +20,13 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/cz-commitlint": "^17.7.1",
     "@typescript-eslint/parser": "^6.5.0",
+    "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.48.0",
     "eslint-plugin-astro": "^0.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "husky": "^8.0.0",
+    "inquirer": "8",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-config-standard": "^7.0.0",
@@ -31,7 +34,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "@commitlint/cz-commitlint"
     }
   }
 }
