@@ -1,1 +1,1 @@
-{ "**/*.{js,jsx,ts,tsx,md,mdx,astro}": "nr lint" }
+{ "**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro}": "nr lint" }
