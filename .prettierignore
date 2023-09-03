@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build/
+node_modules/
+dist/
+
+# Ignore files:
+prettier.config.cjs
+.eslintrc.cjs
+.lintstagedrc
+commitlint.config.js
+env.d.ts
