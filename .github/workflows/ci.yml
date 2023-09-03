@@ -15,7 +15,7 @@ on:
 
 jobs:
   test-and-build:
-    if: ${{ github.repository == 'ash1kh/digital-garden'}}
+    if: ${{ github.repository == 'ash1khan/digital-garden'}}
     runs-on: ubuntu-latest
     permissions:
       contents: write
