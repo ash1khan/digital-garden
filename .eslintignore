@@ -1,8 +1,0 @@
-node_modules/
-dist/
-build/
-prettier.config.cjs
-.eslintrc.cjs
-.lintstagedrc
-commitlint.config.js
-env.d.ts
