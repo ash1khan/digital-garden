@@ -1,0 +1,51 @@
+# TODO:
+# - on push to editorial branch will check linting of all md files
+#  - and create a pr to main branch for merging
+
+# on pull request in main branch
+# - run test and build checks
+# - merge
+# - close pull request
+name: Continous Integration
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  test-and-build:
+    if: ${{ github.repository == 'ash1kh/digital-garden'}}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+              - run: npm ci
+
+      - name: Check types and style
+        run: npm run check
+
+      # - name: Test
+      #   run: npm test
+
+      - name: Ensure Astro builds
+        run: npm run build
