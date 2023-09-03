@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "tsc --noEmit && pnpm dlx prettier --check \"**/*.{js,ts,md,mdx,svelte,astro}\"",
+    "check": "tsc --noEmit && prettier --check \"**/*.{js,ts,md,mdx,svelte,astro}\"",
     "lint": "prettier --write \"**/*.{js,ts,md,mdx,svelte,astro}\" && eslint --fix \"src/**/*.{js,ts,md,mdx,svelte,astro}\"",
     "commitlint": "commitlint --edit",
     "commit": "git-cz",
