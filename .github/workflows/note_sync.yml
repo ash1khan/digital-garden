@@ -1,0 +1,24 @@
+name: Sync note contents
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  test:
+    if: ${{ github.repository == 'ash1khan/digital-garden'}}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # TODO: create a pull request upon completion
+    #   - name: create pull request
+    # run: gh pr create -B base_branch -H branch_to_merge --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+    # env:
+    #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
