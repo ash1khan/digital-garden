@@ -46,6 +46,7 @@ jobs:
       - name: Ensuring Astro builds with bun
         run: bun run build
 
+      # TODO: add appropriate summary
       - name: Adding job summery
         run: |
           echo "### BUILD is okay! :rocket:" > $GITHUB_STEP_SUMMARY
@@ -53,8 +54,24 @@ jobs:
           echo "- Test took... some minutes" >> $GITHUB_STEP_SUMMARY
           echo "- Build took... some minutes" >> $GITHUB_STEP_SUMMARY
 
-#      - name: Merge
-#        uses: KeisukeYamashita/auto-pull-request-merge@v1.0.6
-#        with:
-#          intervalSeconds: 10
-#          timeoutSeconds: 30
+  # TODO: Auto merge and delete branch
+  auto-merge:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merging PR
+        uses: KeisukeYamashita/auto-pull-request-merge@v1.0.6
+        with:
+          intervalSeconds: 10
+          timeoutSeconds: 30
+
+  cleanup:
+    runs-on: ubuntu-latest
+    needs: [build, auto-merge]
+    steps:
+      - uses: actions/checkout@v4
+      - name: delete branch
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
