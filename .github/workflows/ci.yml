@@ -1,4 +1,4 @@
-name: Pull request on main
+name: Continous Integration
 
 on:
   pull_request:
@@ -35,6 +35,14 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      # TODO: rules not implemented yet
+      - name: Running Linting and formatting rules
+        run: echo "run formatter and lint for all files"
+
+        # TODO: test not implemented yet
+      - name: Running test
+        run: echo "Testing.. with bun..."
+
       - name: Ensuring Astro builds with bun
         run: bun run build
 
@@ -43,7 +51,8 @@ jobs:
         run: |
           echo "### BUILD is okay! :rocket:" > $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY 
-          echo "- building took... some minutes" >> $GITHUB_STEP_SUMMARY
+          echo "- Test took... some minutes" >> $GITHUB_STEP_SUMMARY
+          echo "- Build took... some minutes" >> $GITHUB_STEP_SUMMARY
 
   # TODO: Auto merge and delete branch
   auto-merge:
